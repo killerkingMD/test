@@ -1,0 +1,226 @@
+{
+  "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Resources/deployments/CreateVm-Canonical.UbuntuServer-18.04-LTS-20210819200311",
+  "name": "CreateVm-Canonical.UbuntuServer-18.04-LTS-20210819200311",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "primaryResourceId": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourcegroups/Servidorbr_group/providers/Microsoft.Compute/virtualMachines/Servidorbr",
+    "marketplaceItemId": "canonical.UbuntuServer1804LTS-ARM",
+    "provisioningHash": "SolutionProvider"
+  },
+  "properties": {
+    "templateHash": "7599724859339180279",
+    "parameters": {
+      "location": {
+        "type": "String",
+        "value": "brazilsouth"
+      },
+      "networkInterfaceName": {
+        "type": "String",
+        "value": "servidorbr581"
+      },
+      "enableAcceleratedNetworking": {
+        "type": "Bool",
+        "value": true
+      },
+      "networkSecurityGroupName": {
+        "type": "String",
+        "value": "Servidorbr-nsg"
+      },
+      "networkSecurityGroupRules": {
+        "type": "Array",
+        "value": [
+          {
+            "name": "SSH",
+            "properties": {
+              "priority": 300,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "22"
+            }
+          },
+          {
+            "name": "HTTP",
+            "properties": {
+              "priority": 320,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "80"
+            }
+          },
+          {
+            "name": "HTTPS",
+            "properties": {
+              "priority": 340,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "443"
+            }
+          }
+        ]
+      },
+      "subnetName": {
+        "type": "String",
+        "value": "default"
+      },
+      "virtualNetworkName": {
+        "type": "String",
+        "value": "Servidorbr_group-vnet"
+      },
+      "addressPrefixes": {
+        "type": "Array",
+        "value": [
+          "10.0.0.0/16"
+        ]
+      },
+      "subnets": {
+        "type": "Array",
+        "value": [
+          {
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24"
+            }
+          }
+        ]
+      },
+      "publicIpAddressName": {
+        "type": "String",
+        "value": "Servidorbr-ip"
+      },
+      "publicIpAddressType": {
+        "type": "String",
+        "value": "Dynamic"
+      },
+      "publicIpAddressSku": {
+        "type": "String",
+        "value": "Basic"
+      },
+      "virtualMachineName": {
+        "type": "String",
+        "value": "Servidorbr"
+      },
+      "virtualMachineComputerName": {
+        "type": "String",
+        "value": "Servidorbr"
+      },
+      "virtualMachineRG": {
+        "type": "String",
+        "value": "Servidorbr_group"
+      },
+      "osDiskType": {
+        "type": "String",
+        "value": "Premium_LRS"
+      },
+      "virtualMachineSize": {
+        "type": "String",
+        "value": "Standard_D2s_v3"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "Miguel"
+      },
+      "adminPassword": {
+        "type": "SecureString"
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Running",
+    "timestamp": "2021-08-19T23:11:27.628277Z",
+    "duration": "PT30.0957945S",
+    "correlationId": "bee26562-24f1-4780-a2e0-032d1c1b6af9",
+    "providers": [
+      {
+        "namespace": "Microsoft.Network",
+        "resourceTypes": [
+          {
+            "resourceType": "networkInterfaces",
+            "locations": [
+              "brazilsouth"
+            ]
+          },
+          {
+            "resourceType": "networkSecurityGroups",
+            "locations": [
+              "brazilsouth"
+            ]
+          },
+          {
+            "resourceType": "virtualNetworks",
+            "locations": [
+              "brazilsouth"
+            ]
+          },
+          {
+            "resourceType": "publicIpAddresses",
+            "locations": [
+              "brazilsouth"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Compute",
+        "resourceTypes": [
+          {
+            "resourceType": "virtualMachines",
+            "locations": [
+              "brazilsouth"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Network/networkSecurityGroups/Servidorbr-nsg",
+            "resourceType": "Microsoft.Network/networkSecurityGroups",
+            "resourceName": "Servidorbr-nsg"
+          },
+          {
+            "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Network/virtualNetworks/Servidorbr_group-vnet",
+            "resourceType": "Microsoft.Network/virtualNetworks",
+            "resourceName": "Servidorbr_group-vnet"
+          },
+          {
+            "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Network/publicIpAddresses/Servidorbr-ip",
+            "resourceType": "Microsoft.Network/publicIpAddresses",
+            "resourceName": "Servidorbr-ip"
+          }
+        ],
+        "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Network/networkInterfaces/servidorbr581",
+        "resourceType": "Microsoft.Network/networkInterfaces",
+        "resourceName": "servidorbr581"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Network/networkInterfaces/servidorbr581",
+            "resourceType": "Microsoft.Network/networkInterfaces",
+            "resourceName": "servidorbr581"
+          }
+        ],
+        "id": "/subscriptions/83e10498-35fd-4934-aba4-b8687e62b9c4/resourceGroups/Servidorbr_group/providers/Microsoft.Compute/virtualMachines/Servidorbr",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceName": "Servidorbr"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}
